@@ -61,7 +61,7 @@ def amino_acid_seq(length, frequencies):
         raise ValueError("Length must be a positive integer")
 
     sequence = ""
-    amino_acids, frequencies = zip(*frequencies.items())
+    amino_acids, frequencies = zip(*frequencies[list(frequencies.keys())[0]].items())
     for i in range(length):
         sequence += np.random.choice(amino_acids, p=frequencies)
     return sequence
